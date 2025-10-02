@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Digitalbank landing page</title>
+
+
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Young+Serif&display=swap');
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      img {
+        display: block;
+        max-inline-size: 100%;
+        max-block-size: auto;
+      }
+
+     
+
+      p {
+        text-wrap: pretty;
+      }
+
+
+  
+    :root {
+
+      /* Primary */
+      --Blue-950: hsl(233, 26%, 24%);
+      --Green-500: hsl(136, 64%, 51%);
+      --Cyan-400: hsl(192, 69%, 51%);
+
+      /* Neutral */
+      --Gray-600: hsl(233, 8%, 62%);
+      --Gray-100: hsl(220, 16%, 96%);
+      --Gray-50: hsl(0, 0%, 98%);
+      --White: hsl(0, 100%, 100%);
+
+      /* typography-size */
+      --font-xl: 20px;
+      --font-l: 18px;
+      --font-m: 16px;
+      --font-sm: 14px;
+
+       /* typography-weight */
+      --font-700: 700;
+      --font-500:  500;
+      --font-400: 400;
+      --font-300: 300;
+    }
+
+    body {
+      min-block-size: 100vh;
+      max-inline-size: 100vw;
+      font-family: "Public Sans", sans-serif;
+      background-color: var(--Gray-50);
+      padding: 0;
+      margin: 0;
+
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .navbar {
+      width: 100%;
+      min-height: 60px;
+      background-color: var(--White);
+      padding: .5rem 5%;
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 99;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+  
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem; 
+    }
+
+   
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--Gray-600);
+      cursor: pointer;
+      padding-block: 1.5rem;
+      transition: 300ms ease;
+    }
+
+    .nav-links li a:hover {
+      color: var(--Blue-950);
+      font-weight: var(--font-700);
+      border-bottom: 3px solid var(--Green-500);
+
+    }
+
+    .btn a {
+      text-decoration: none;
+      color: var(--White);
+      font-weight: var(--font-700);
+      padding: .7rem 1.5rem ;
+      background-color: var(--Green-500);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 300ms ease;
+    }
+
+     .btn a:hover {
+        opacity: .85;
+     }
+
+     .navbar  .navbar-toggle {
+      display: none;
+      background-color: transparent;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+}
+
+   .navbar .navbar-toggle .bar {
+      display: block;
+      width: 1.5rem;
+      height: 3px;
+      background-color: black;
+      margin: 5px auto;
+      transition: .5s  ease-out;
+   }
+
+     .hero-section {
+      display: flex;
+      justify-content: space-between;
+     }
+
+     .hero-section > .info {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-top: 10rem;
+        margin-left: 14rem;
+        max-width: 27%;
+    
+     }
+
+     .info > * {
+         margin-block: 1rem;
+       
+     }
+
+     .hero-section > .info > h1 {
+       font-size: clamp(3rem, 2vw + 1rem, 4.5rem);
+       font-weight: 300;
+       text-wrap: balance;
+
+       
+     }
+
+      .hero-section > .info > p {
+         color: var(--Gray-600);
+         font-weight: var(--font-400);
+         line-height: 1.5;
+ 
+      }
+
+            .hero-section > .info > .button a {
+                text-decoration: none;
+                color: var(--White);
+                font-weight: var(--font-700);
+                padding: .7rem 1.5rem ;
+                background-color: var(--Green-500);
+                border-radius: 30px;
+                cursor: pointer;
+                transition: 300ms ease;
+    }
+
+       .hero-section > .info > .button a:hover {
+        opacity: .85;
+     }
+
+       .hero-section > .info > .button {
+        margin-block: 2rem;
+       }
+
+          .hero-section > .landing-image {
+            width: 70%;
+            position: relative;
+            min-height: fit-content;
+          
+           
+         
+          }
+
+             .hero-section > .landing-image > .intro {
+                max-width: 100%;
+                position: relative;
+                left: 15%;
+                bottom: 14%;
+              
+             }
+
+             .hero-section > .landing-image > .mobile {
+                position: absolute;
+                right: -16%;
+                top: -25%;
+
+             }
+
+             .service-cards {
+              width: 95%;
+              height: fit-content;
+              background-color: var(--Gray-100);
+              padding: 2rem;
+              margin-left: auto;
+             }
+             
+             .service-cards > .heading {
+                margin-block: 4rem;
+                margin-left: 5rem;
+                width: 45%;
+             }
+
+               .service-cards > .heading  > h2 {
+                font-size: clamp(1.7rem, 2vw + 1rem, 2.5rem );
+                font-weight: var(--font-400);
+               }
+
+                 .service-cards > .heading  > p {
+                    color: var(--Gray-600);
+                    line-height: 1.5;
+                    font-weight: var(--font-500);
+                    font-size: clamp(14px,16px,18px);
+                 }
+             
+
+             .service-cards > .cards {
+              display: flex;
+              width: 100%;
+              margin-inline: auto;
+              gap: 1.5rem;
+             }
+
+            
+
+               .service-cards > .cards > .card {
+                width: 22%;
+               }
+
+             .service-cards > .cards > .card > h3 {
+                font-weight: var(--font-400);
+             }
+
+              .service-cards > .cards > .card > p {
+                color: var(--Gray-600);
+            
+              }
+
+           .article {
+            margin-block: 2rem;
+            max-width: 90%;
+            min-height: fit-content;
+            background-color: var(--White);
+            margin-inline: auto;
+            padding: 2rem 5rem;
+
+           }
+
+           .article > .heading > h2 {
+             font-size: 2.3rem;
+            font-weight: var(--font-300);
+           }
+
+          .article > .cards {
+            display: flex;
+            gap: 1.5rem;
+          }
+
+           .article > .cards > .card {
+            width: 30%;
+            background-color: var(--Gray-100);
+            border-radius: 10px;
+    
+         
+           }
+
+           .article > .cards > .card > .card-image {
+             max-width: 100%;
+             height: auto;
+           }
+
+             .article > .cards > .card > .card-image > img {
+               max-width: 100%;
+               aspect-ratio: 1/1;
+               border-radius: 10px 10px 0 0;
+             }
+
+
+          .article > .cards > .card > .card-info {
+              margin-top: 1rem;
+              padding: .5rem;
+            }
+
+          .article > .cards > .card > .card-info > small {
+               font-size: 80%;
+               color: var(--Gray-600);
+             }
+
+          .article > .cards > .card > .card-info > h4 {
+             font-weight: var(--font-400);
+            
+          }
+
+           .article > .cards > .card > .card-info > h4:nth-child(2) {
+              text-wrap: balance;
+             
+           }
+
+            .article > .cards > .card > .card-info > p {
+                font-size: 15px;
+                color: var(--Gray-600);
+                
+              }
+
+         
+
+          footer {
+            min-width: 100%;
+            height: fit-content;
+            padding-block: 2rem;
+            background-color: var(--Blue-950);
+            color: var(--White);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+          }
+
+          .social-group {
+            display: flex;
+            gap: 4rem;
+          }
+
+          .social-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+          }
+
+          .social-links > .social-icons {
+            display: inline-flex;
+            gap: .7rem;
+          
+          }
+
+          .social-contact {
+            display: flex;
+            gap: 3rem;
+          }
+
+          .social-contact > ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+          
+          }
+
+           .social-contact > ul > li a {
+            text-decoration: none;
+            color: var(--White);
+            font-weight: var(--font-400);
+            font-size: 80%;
+           }
+
+           .btns {  
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 1rem;
+              padding-inline: 2rem;
+         }
+
+
+           .btns a {
+              text-decoration: none;
+              text-align: center;
+              color: var(--White);
+              font-weight: var(--font-700);
+              padding: .7rem 1.5rem ;
+              background-color: var(--Green-500);
+              border-radius: 30px;
+              cursor: pointer;
+              transition: 300ms ease;
+          }
+
+          .btns a:hover {
+              opacity: .85;
+          }
+
+          .btns > p {
+            font-size: 85%;
+            color: var(--Gray-600);
+            position: relative;
+            right: 2rem;
+          }
+
+
+
+
+
+           @media (max-width: 760px) {
+              
+              .body {
+                max-inline-size: 100svw;
+                min-block-size: 100svh;
+                display: grid;
+                place-content: center;
+              }
+
+             
+              .navbar {
+                flex-wrap: nowrap;
+                min-width: 100%;
+                justify-content: space-between;
+              }
+
+
+
+             .navbar .btn a {
+                display: none;
+             }
+
+             .main {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              max-width: 100%;
+              overflow-y: auto;
+              overflow-x: hidden;
+             }
+
+             .main > * {
+                flex: 1;
+                
+             }
+
+              .nav-links {
+                display: none;
+                position: absolute;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+                top: 100%;
+                background-color: var(--White);
+                width: 90%;
+                box-shadow: 0 10px 30px var(--Blue-950),
+                0 20px 30px var(--Green-500);
+         
+             
+              }
+
+               .nav-links li a {
+                color: #000;
+               }
+
+                .nav-links li a:hover {
+                  border-bottom: none;
+                }
+
+               .navbar  .navbar-toggle {
+                  display: block;
+                  z-index: 999;
+                  position: absolute;
+                  right: 0;
+                
+              }
+
+              
+
+              .navbar  .nav-links.active {
+                  display: flex;
+              }
+
+              .navbar .navbar-toggle.active .bar:nth-child(2) {
+                 opacity: 0; 
+              }
+              .navbar .navbar-toggle.active .bar:nth-child(1) {
+                  transform: translateY(8px) rotate(45deg);
+      
+              }
+
+              .navbar .navbar-toggle.active .bar:nth-child(3) {
+                 transform: translateY(-8px) rotate(-45deg);
+               }
+
+                   .hero-section {
+                      display: flex;
+                      flex-direction: column-reverse;
+                      align-items: center;
+                      justify-content: center;
+                      
+
+                  }
+
+                  .hero-section > .info {
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      justify-content: center;
+                      margin-top: 0rem;
+                      margin-left: 0rem;
+                      min-width: 100%;
+                    }
+
+                    .hero-section > .info > * {
+                      flex: 1;
+                      min-width: fit-content;
+                      
+                    }
+
+                     .hero-section > .info > h1 {
+                       text-align: center;
+                       font-size: 2rem;
+                     }
+
+                  .info > * {
+                      margin-block: 1rem;
+                      text-align: center;
+                  }
+
+
+              
+
+                .hero-section > .landing-image {
+                    width: 100%;
+                    position: relative;
+                    min-height: fit-content;
+          }
+
+             .hero-section > .landing-image > .intro {
+                min-width: 100%;
+                position: relative;
+                inset: 0;
+             }
+
+                .hero-section > .landing-image > .intro  > img {
+                  display: block;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                 
+                }
+
+             .hero-section > .landing-image > .mobile {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 100%;
+             }
+
+                .hero-section > .landing-image > .mobile > img {
+                  display: block;
+                  max-inline-size: 100%;
+                  min-block-size: auto !important;
+                }
+
+              .service-cards > .cards {
+                  display: flex;
+                  flex-direction: column;
+                  width: 95%;
+                  margin-inline: auto;
+                  gap: 1.5rem;
+                  align-items: center;
+                  justify-content: center;
+             }
+
+            
+
+               .service-cards > .cards > .card {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+               }
+
+
+             
+           .article {
+            margin-block: 1rem;
+            max-width: 90%;
+            min-height: fit-content;
+            background-color: var(--White);
+            margin-inline: auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+           }
+
+            .article > .heading > * {
+              min-width: fit-content;
+              flex: 1;
+            }
+           
+
+           .article > .heading > h2 {
+             font-size: 2rem;
+            font-weight: var(--font-300);
+            text-align: center;
+            text-wrap: balance;
+           }
+
+           .article > .heading > p {
+              text-align-last: center;
+              text-wrap: pretty;
+            
+           }
+
+          .article > .cards {
+
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+          }
+
+
+           .article > .cards > .card {
+            width: 100%;
+           }
+
+    
+             footer {
+                max-width: 100%;
+                height: fit-content;
+                padding-block: 2rem;
+                background-color: var(--Blue-950);
+                color: var(--White);
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                overflow: hidden;
+
+          }
+
+     
+
+          .social-group {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+             gap: 2rem;
+           
+          }
+
+          .social-group > * {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+          }
+
+          .social-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-left: 2rem;
+           
+          }
+
+          .social-links > .social-icons {
+            gap: .5rem;  
+          }
+
+          .social-contact {
+            display: flex;
+            gap: 0;
+          }
+
+          .social-contact > ul {
+            flex-direction: column;
+            gap: 1rem;
+          
+          }
+
+           .social-contact > ul > li a {
+            font-size: 90%;
+           }
+
+           .btns {  
+             display: grid;
+             place-content: center;
+              
+             
+         }
+           .btns a {
+              margin-left: 2rem;
+              
+          }
+
+          .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 90%;
+            margin-inline: auto;
+
+         
+          }
+
+          .btns > p {
+            font-size: 90%;
+            color: var(--Gray-600);
+            position: static;
+            text-align: center;
+            margin-left: 1.5rem;
+          }
+
+          h2 {
+            font-size: 2rem;
+            text-align: center;
+            text-wrap: balance;
+          }
+
+            .service-cards > .heading {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               width: 100%;
+               margin-left: 0rem;
+               margin-block: 2rem;
+               text-align: center;
+            }
+
+            h3, h4 {
+              font-size: clamp(.9rem, 1.1rem, 1.3rem);
+              
+            }
+            
+          }
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <img src="images/logo-dark.svg" alt="logo" class="logo">
+     <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Careers</a></li>
+    </ul>
+    <div class="btn">
+      <a href="#">Request Invite</a>
+    </div>
+  </nav>
+
+  <div class="main">
+    
+  <section class="hero-section">
+    <div class="info">
+        <h1>Next generation digital banking</h1>
+        <p>Take your financial life online. Your Digitalbank account will be a one-stop-shop 
+        for spending, saving, budgeting, investing, and much more.</p>
+        <div class="button">
+          <a href="#">Request Invite</a>
+        </div>
+    </div>
+    <div class="landing-image">
+      <div class="intro">
+        <picture>
+          <source src="images/images/bg-intro-mobile.svg">
+          <img srcset="images/bg-intro-desktop.svg" class="bg-img">
+        </picture>     
+      </div>
+      <div class="mobile">
+         <img src="images/image-mockups.png" class="mobile-img" >
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cards">
+    <div class="heading">
+      <h2> Why choose Digitalbank?</h2>
+      <p>  We leverage Open Banking to turn your bank account into your financial hub. Control 
+      your finances like never before.</p>
+    </div>
+
+    <div class="cards">
+          <div class="card">
+          <img src="images/icon-online.svg">
+          <h3> Online Banking</h3>
+          <p>  Our modern web and mobile applications allow you to keep track of your finances 
+          wherever you are in the world.</p>
+        </div>
+
+        <div class="card">
+          <img src="images/icon-budgeting.svg">
+          <h3>Simple Budgeting</h3>
+          <p>See exactly where your money goes each month. Receive notifications when you’re 
+          close to hitting your limits.</p>
+        </div>
+
+        <div class="card">
+          <img src="images/icon-onboarding.svg">
+          <h3>Fast Onboarding</h3>
+          <p> We don’t do branches. Open your account in minutes online and start taking control 
+              of your finances right away.</p>
+        </div>
+
+        <div class="card">
+          <img src="images/icon-api.svg">
+          <h3> Open API</h3>
+          <p>Manage your savings, investments, pension, and much more from one account. Tracking 
+          your money has never been easier.</p>
+        </div>
+
+    </div> 
+  </section>
+  
+  <section class="article">
+    <div class="heading">
+      <h2>Latest Articles</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-image">
+          <img src="images/image-currency.jpg">
+        </div>
+        <div class="card-info">
+          <small>By Claire Robinson</small>
+        <h4>Receive money in any currency with no fees</h4>
+        <p> The world is getting smaller and we’re becoming more mobile.
+        So why should you be forced to only receive money in a single …</p>  
+        </div>
+        
+      </div>
+
+      <div class="card">
+         <div class="card-image">
+          <img src="images/image-restaurant.jpg">
+        </div>
+        <div class="card-info">
+          <small>Online Banking</small>
+        <h4>Treat yourself without worrying about money</h4>
+        <p> Our modern web and mobile applications allow you to
+          keep track of your finances  wherever you are in the world.</p>  
+        </div>
+      </div>
+
+      <div class="card">
+         <div class="card-image">
+          <img src="images/image-plane.jpg" >
+        </div>
+        <div class="card-info">
+          <small> By Wilson Hutton</small>
+        <h4>Take your Digitalbank card wherever you go</h4>
+        <p>We want you to enjoy your travels. This is why we don’t charge any fees
+           on purchases  while you’re abroad. We’ll even show you …</p>  
+        </div>
+
+        
+      </div>
+
+      <div class="card">
+         <div class="card-image">
+          <img src="images/image-confetti.jpg" >
+        </div>
+        <div class="card-info">
+           <small>By Claire Robinson</small>
+        <h4> Our invite-only Beta accounts are now live!</h4>
+        <p> After a lot of hard work by the whole team, we’re excited to launch our
+        closed beta. It’s easy to request an invite through the site ...</p> 
+        </div> 
+      </div>
+    </div>
+  </section>
+  
+      <footer>
+       <div class="center">
+         <div class="social-group">
+             <div class="social-links">
+          <img src="images/logo-light.svg" class="logo">
+          <div class="social-icons">
+            <a href="#"><img src="images/icon-facebook.svg" alt="facebook"></a>
+            <a href="#"><img src="images/icon-youtube.svg" alt="Youtube"></a>
+            <a href="#"><img src="images/icon-twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="images/icon-pinterest.svg" alt="pinterset"></a>
+            <a href="#"><img src="images/icon-instagram.svg" alt="instagram"></a>
+          </div> 
+        </div>
+        <div class="social-contact">
+          <ul class="col-one">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+
+          <ul class="col-two">
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+       </div>
+       
+        </div>
+         <div class="btns">
+          <a href="#">Request Invite</a>
+          <p class="copy-rights">© Digitalbank. All Rights Reserved</p>
+        </div>
+     
+      
+      </footer>
+  </div>
+
+
+
+
+
+
+ 
+ 
+
+  <script src="script.js"></script>
+
+</body>
+</html>
